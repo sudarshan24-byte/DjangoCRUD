@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Player's Data</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% include 'data-nav.html' %}
+    <h1 class='text-center my-3'>Update Data</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-white bg-dark">
+                    <div class="card-body">
+                        <form action="/data/update-player/{{ply.id}}/" method='POST'>
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name">Player's Name</label>
+                                <input type="text" id='name' class="form-control" placeholder="Enter Player's name" name="player_name" value='{{ply.pName}}'>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="country">Country</label>
+                                <input type="text" id='country' class="form-control" placeholder="Enter Country" name="country" value='{{ply.country}}'>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="team">Team</label>
+                                <input type="text" id='team' class="form-control" placeholder="Enter Team" name="team" value='{{ply.team}}'>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="category">Category</label>
+                                <select name="category" id="category" class='form-select' placeholder='select' value='{{ply.category}}'>
+                                    <option value="BAT">Batsman</option>
+                                    <option value="BOWL">Bowler</option>
+                                    <option value="ALLR">All-Rounder</option>
+                                    <option value="WK">Wicket Keeper</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="player_type">Player Type</label>
+                                <select name="player_type" id="player_type" class='form-select' value='{{ply.pType}}'>
+                                    <option value="RH">Right Handed</option>
+                                    <option value="LH">Left Handed</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="bowler_type">Bowler Type</label>
+                                <select name="bowler_type" id="bowler_type" class='form-select' value='{{ply.bType}}'>
+                                    <option value="NONE">None</option>
+                                    <option value="PACER">Pacer</option>
+                                    <option value="OFFSPIN">Off-Spinner</option>
+                                    <option value="LEGSPIN">Leg-Spinner</option>
+                                </select>
+                            </div>
+
+                            <div class="container text-center">
+                                <button class="btn btn-success">
+                                    Update Player
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
