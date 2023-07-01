@@ -1,5 +1,5 @@
-# CricketCatalogue
-Cricket management app built with Python and Django for managing players and their types.
+# DJango CRUD
+CRUD management app built with Python and Django.
 
 ## Technology Used
 
